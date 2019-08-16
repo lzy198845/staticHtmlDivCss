@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js"></script>
+	</head>
+	<body>
+		<button onclick="alert('test')">你好啊</button>
+		<div>我想我找到组织了，这不就是我想要的效果吗？</div>
+		<script>
+			var vConsole = new VConsole();
+			var storage = window.localStorage;
+			console.log("===初步使用本地存储======================================");
+			{
+				var firestOpenQuanyi = storage.firestOpenQuanyi;
+				var cstLvl = storage.cstLvl;
+				/**页面首次打开标记*/
+				if (!firestOpenQuanyi) {
+					storage.firestOpenQuanyi = "1";
+					console.log("首次打开");
+				} else {
+					console.log("第二次打开");
+				}
+				/**会员等级初次存储及下次对比*/
+				if (!cstLvl) {
+					storage.cstLvl = 1;
+					console.log("初次存储会员等级");
+				} else if (cstLvl && cstLvl < "2") {
+					storage.cstLvl = 2;
+					console.log("会员升级了");
+				}
+			}
+		</script>
+	</body>
+</html>

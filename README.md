@@ -1,2 +1,0 @@
-# staticHtmlDivCss
-Created with CodeSandbox
