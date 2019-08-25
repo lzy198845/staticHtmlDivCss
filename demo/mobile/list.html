@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>需要完善领奖信息</title>
+		<link rel="stylesheet" href="../static/list.css" />
+		<style>
+			.aui-store-address ul li h2 button {
+				position: absolute;
+				right: 0;
+				font-weight: normal;
+				line-height: 12px;
+				padding-top: 3px;
+				top: 10px;
+
+				color: white;
+				background-color: #ffa83e;
+				padding: 4px 0px 4px 0px !important;
+				width: 75px !important;
+				display: inline !important;
+				border: 1px;
+				border-radius: 5px !important;
+				font-size: 12px !important;
+			}
+			.aui-store-address ul li p {
+				padding-bottom: 0;
+			}
+		</style>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="../static/tool.js"></script>
+	</head>
+	<body>
+		<section class="aui-scrollView">
+			<div class="aui-store-address">
+				<ul>
+					<li class="b-line">
+						<h2>
+							遮阳伞提货券
+							<button data-gameno="1">完善信息</button>
+						</h2>
+						<p>
+							中奖时间：2019-08-25
+						</p>
+					</li>
+					<li class="b-line">
+						<h2>
+							遮阳伞提货券
+							<button data-gameno="2">完善信息</button>
+						</h2>
+						<p>
+							中奖时间：2019-08-25
+						</p>
+					</li>
+					<li class="b-line">
+						<h2>
+							遮阳伞提货券
+							<button data-gameno="3">完善信息</button>
+						</h2>
+						<p>
+							中奖时间：2019-08-25
+						</p>
+					</li>
+					<li class="b-line">
+						<h2>
+							遮阳伞提货券
+							<button data-gameno="4">完善信息</button>
+						</h2>
+						<p>
+							中奖时间：2019-08-25
+						</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<script>
+			var bllNo = getUrlPrmVal(location.href, "bllNo"); //中奖单号
+			var GameNo = getUrlPrmVal(location.href, "GameNo"); //业务单号
+			// setCookie('tradeno', tradeno, 2);//业务单号配置本地存储
+			setCookie("GameNo", GameNo, 2); //游戏编号配置本地存储
+			setCookie("bllNo", bllNo, 2); //中奖单号配置本地存储
+
+			$("button").on("click", function() {
+				console.log($(this).data("gameno"));
+				location.href =
+					"https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=http://" +
+					window.location.hostname +
+					"/ZFunAwardForm.aspx&key=MQZBZ-Y3L3I-C5QG2-5LSUU-2DSUJ-ZJBKX&referer=cst";
+			});
+		</script>
+	</body>
+</html>
