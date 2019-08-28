@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>反地址解析</title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			body,
+			button,
+			input,
+			select,
+			textarea {
+				font: 12px/16px Verdana, Helvetica, Arial, sans-serif;
+			}
+			p {
+				width: 603px;
+				padding-top: 3px;
+				margin-top: 10px;
+				overflow: hidden;
+			}
+			#container {
+				min-width: 603px;
+				min-height: 767px;
+			}
+		</style>
+		<script
+			charset="utf-8"
+			src="https://map.qq.com/api/js?v=2.exp&key=MLIBZ-5G2CK-6DGJZ-AKMAH-D63R6-EOF5H"
+		></script>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+		<script>
+			/*
+			var geocoder,
+				map,
+				marker = null;
+			var init = function() {
+				var center = new qq.maps.LatLng(39.916527, 116.397128);
+				map = new qq.maps.Map(document.getElementById("container"), {
+					//地图组件
+					center: center,
+					zoom: 13
+				});
+				var info = new qq.maps.InfoWindow({ map: map }); //信息弹窗？
+				geocoder = new qq.maps.Geocoder({
+					complete: function(result) {
+						map.setCenter(result.detail.location); //定位位置
+						var marker = new qq.maps.Marker({
+							map: map,
+							position: result.detail.location
+						});
+						//添加监听事件 当标记被点击了  设置图层
+						qq.maps.event.addListener(marker, "click", function() {
+							info.open();
+							info.setContent(
+								'<div style="width:280px;height:100px;">' +
+									result.detail.address +
+									"</div>"
+							);
+							info.setPosition(result.detail.location);
+						});
+					}
+				});
+			};
+
+			//根据坐标定位
+			 			function codeLatLng() {
+				//获取经纬度数值   按照,分割字符串 取出前两位 解析成浮点数
+				var input = document.getElementById("latLng").value;
+				var latlngStr = input.split(",", 2);
+				var lat = parseFloat(latlngStr[0]);
+				var lng = parseFloat(latlngStr[1]);
+				var latLng = new qq.maps.LatLng(lat, lng);
+				//调用信息窗口
+				var info = new qq.maps.InfoWindow({ map: map });
+				//调用获取位置方法
+				geocoder.getAddress(latLng);
+			}*/
+			//小程序获取当前位置经纬度
+			/*
+			wx.getLocation({
+				type: "wgs84",
+				success: function(res) {
+					//console.log("获取当前经纬度：" + JSON.stringify(res));
+					//发送请求通过经纬度反查地址信息
+					var getAddressUrl =
+						"https://apis.map.qq.com/ws/geocoder/v1/?location=39.98174,116.30631&key=MLIBZ-5G2CK-6DGJZ-AKMAH-D63R6-EOF5H&get_poi=1";
+					common.Request(getAddressUrl, "get", "", function(ops) {
+						//console.log(JSON.stringify(ops));
+					});
+				}
+			});*/
+			function ajax(opt) {
+				opt = opt || {};
+				opt.method = opt.method.toUpperCase() || "POST";
+				opt.url = opt.url || "";
+				opt.async = opt.async || true;
+				opt.data = opt.data || null;
+				opt.success = opt.success || function() {};
+				var xmlHttp = null;
+				if (XMLHttpRequest) {
+					xmlHttp = new XMLHttpRequest();
+				} else {
+					xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				var params = [];
+				for (var key in opt.data) {
+					params.push(key + "=" + opt.data[key]);
+				}
+				var postData = params.join("&");
+				if (opt.method.toUpperCase() === "POST") {
+					xmlHttp.open(opt.method, opt.url, opt.async);
+					xmlHttp.setRequestHeader(
+						"Content-Type",
+						"application/x-www-form-urlencoded;charset=utf-8"
+					);
+					xmlHttp.send(postData);
+				} else if (opt.method.toUpperCase() === "GET") {
+					xmlHttp.open(opt.method, opt.url + "?" + postData, opt.async);
+					xmlHttp.send(null);
+				}
+				xmlHttp.onreadystatechange = function() {
+					if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+						opt.success(xmlHttp.responseText);
+					}
+				};
+			}
+
+			function codeLatLng() {
+				var getAddressUrl =
+					"https://apis.map.qq.com/ws/geocoder/v1/?location=39.98174,116.30631&key=MLIBZ-5G2CK-6DGJZ-AKMAH-D63R6-EOF5H&get_poi=1";
+				//调用
+				$.ajax({
+					method: "GET",
+					url: getAddressUrl,
+					dataType: "jsonp",
+					jsonp: "callback",
+					jsonpCallback: "handler",
+					success: function(response) {
+						alert(response);
+					}
+				});
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<div>
+			<input id="latLng" type="textbox" value="39.98174,116.30631" />
+			<input type="button" value="search" onclick="codeLatLng()" />
+		</div>
+		<div id="container"></div>
+		<p>输入坐标，点击search进行反地址解释，点击marker会弹出反查结果。</p>
+	</body>
+</html>

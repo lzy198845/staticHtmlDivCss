@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>提货时间测试</title>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="../static/tool.js"></script>
+	</head>
+	<body>
+		<div class="weui-cell__bd">
+			<select class="weui-input tdate" name="selReqDate" id="selReqDate">
+			</select>
+			<select class="weui-input ttime" name="selReqTime" id="selReqTime">
+			</select>
+			<span class="cl-blue">分别修改</span>
+		</div>
+
+		<script>
+			$(function() {
+				InitSelReqDate();
+				InitSelReqTime();
+			});
+
+			/**设置交货日期*/
+			function InitSelReqDate() {
+				var selReqDate = $("#selReqDate");
+				selReqDate.empty();
+				var curDate = new Date(); //当前时间
+				//小时
+				console.log(curDate.getHours());
+				if (curDate.getHours() >= 18) {
+					curDate = new Date((curDate / 1000 + 86400) * 1000); //86400s=24H
+				}
+				for (var i = 0; i <= 30; i++) {
+					//当前时间扩展到30天范围内可以提前预定
+					selReqDate.append(
+						"<option>" + curDate.Format("yyyy-MM-dd") + "</option>"
+					);
+					curDate = new Date((curDate / 1000 + 86400) * 1000);
+				}
+				selReqDate.val(selReqDate.get(0).options[0].value);
+			}
+
+			/**设置交货时间*/
+			function InitSelReqTime() {
+				var selReqTime = $("#selReqTime");
+				selReqTime.empty();
+				var curHour = 8;
+				var curDate = new Date().Format("yyyy-MM-dd");
+				//选中的日期是当天的日期，不为当天日期，取货时间从早8点开始
+				if ($("#selReqDate").val() === curDate) {
+					curHour = new Date().getHours() + 3; //小时推后3小时
+				}
+				for (var i = curHour; i <= 21; i++) {
+					//21点前，罗列所有的提货时间点
+					selReqTime.append("<option>" + i + ":00</option>");
+					selReqTime.append("<option>" + i + ":30</option>");
+				}
+				selReqTime.val(selReqTime.get(0).options[0].value);
+			}
+		</script>
+	</body>
+</html>
