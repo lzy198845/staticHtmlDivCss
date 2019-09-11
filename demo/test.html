@@ -13,25 +13,51 @@
 		<script>
 			var vConsole = new VConsole();
 			var storage = window.localStorage;
-			console.log("===初步使用本地存储======================================");
 			{
-				var firestOpenQuanyi = storage.firestOpenQuanyi;
-				var cstLvl = storage.cstLvl;
-				/**页面首次打开标记*/
-				if (!firestOpenQuanyi) {
-					storage.firestOpenQuanyi = "1";
-					console.log("首次打开");
-				} else {
-					console.log("第二次打开");
+				console.log(
+					"===初步使用本地存储======================================"
+				);
+				{
+					var firestOpenQuanyi = storage.firestOpenQuanyi;
+					var cstLvl = storage.cstLvl;
+					/**页面首次打开标记*/
+					if (!firestOpenQuanyi) {
+						storage.firestOpenQuanyi = "1";
+						console.log("首次打开");
+					} else {
+						console.log("第二次打开");
+					}
+					/**会员等级初次存储及下次对比*/
+					if (!cstLvl) {
+						storage.cstLvl = 1;
+						console.log("初次存储会员等级");
+					} else if (cstLvl && cstLvl < "2") {
+						storage.cstLvl = 2;
+						console.log("会员升级了");
+					}
 				}
-				/**会员等级初次存储及下次对比*/
-				if (!cstLvl) {
-					storage.cstLvl = 1;
-					console.log("初次存储会员等级");
-				} else if (cstLvl && cstLvl < "2") {
-					storage.cstLvl = 2;
-					console.log("会员升级了");
-				}
+			}
+			/**测试url:https://blog.csdn.net/bb415453941/article/details/50393163*/
+			{
+				console.log(location.hostname); //bx24c.csb.app
+				console.log(location.host); //bx24c.csb.app
+				// 获取主机名
+
+				var hostname = location.hostname;
+
+				// 获取端口号
+				var port = location.port;
+
+				// 获取主机名+端口号
+				var host = location.host;
+
+				/*
+					访问：172.16.0.1:30/login.html
+
+					hostname = 172.16.0.1;
+					port = 30;
+					host = 172.16.0.1/30
+					*/
 			}
 		</script>
 	</body>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>子元素匹配</title>
+		<style>
+			/* 匹配所有作为第一个子元素的 <p> 元素 */
+			p:first-child i {
+				color: blue;
+			}
+
+			p:first-child {
+				font-weight: bold;
+			}
+			li:first-child {
+				text-transform: uppercase;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 匹配所有作为第一个子元素的p元素  -->
+		<p><i>text</i><i>. some</i>.</p>
+		<p><i>text</i><i>. some</i>.</p>
+
+		<!-- first-child 伪类 -->
+		<div>
+			<p>These are the necessary steps:</p>
+			<ul>
+				<li>Intert Key</li>
+				<li>Turn key <strong>clockwise</strong></li>
+				<li>Push accelerator</li>
+			</ul>
+			<p>Do <em>not</em> push the brake at the same time as the accelerator.</p>
+		</div>
+	</body>
+</html>
