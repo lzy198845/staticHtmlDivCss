@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>充值列表</title>
+	<style>
+		html {
+			width: 100%;
+			height: 100%;
+			background: url("https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/inc_back.png") no-repeat;
+			/*背景不平铺*/
+			background-size: 100% 100%;
+			/*设定背景图像的尺寸*/
+			background-attachment: fixed;
+		}
+
+		.inc_100 img {
+			position: fixed;
+			width: 55%;
+			left: 22.5%;
+			bottom: 50%;
+		}
+
+		.inc_200 img {
+			position: fixed;
+			width: 70%;
+			left: 15%;
+			bottom: 35%;
+		}
+
+		.act_noarea {
+			position: absolute;
+			/*或fixed*/
+			z-index: 100;
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+		}
+
+		.act_noarea .img_pop {
+			width: 100%;
+			height: 100%;
+			display: block;
+			/*解决img底部留白问题*/
+		}
+
+		.act_noarea .img_again {
+			width: 54%;
+			z-index: 2;
+			position: fixed;
+			bottom: 30%;
+			left: 23%;
+		}
+
+		.act_noarea .img_back {
+			width: 54%;
+			z-index: 2;
+			position: fixed;
+			bottom: 38%;
+			left: 23%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="inc_100">
+		<img src="https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/inc_100.png" alt="" />
+	</div>
+	<div class="inc_200">
+		<img src="https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/inc_200.png" alt="" />
+	</div>
+	<div class="act_noarea">
+		<img class="img_pop" src="https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/act_noarea.png"
+			alt="">
+		<img class="img_back" src="https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/btn_back.png"
+			alt="">
+		<img class="img_again" src="https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/btn_agin.png"
+			alt="">
+	</div>
+</body>
+
+</html>

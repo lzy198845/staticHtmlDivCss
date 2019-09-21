@@ -1,0 +1,40 @@
+<!-- 手机端背景图铺满全屏:https://blog.csdn.net/weixin_40073208/article/details/78831041 
+img下面的留白解决：https://www.cnblogs.com/yang0901/p/6773367.html-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>背景图全屏</title>
+		<style>
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				height: 100%;
+			}
+			.code {
+				position: absolute; /*或fixed*/
+				z-index: -1;
+				width: 100%;
+				height: 100%;
+				top: 0px;
+				left: 0px;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				display: block; /*解决img底部留白问题*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="code">
+			<img
+				src="https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/act_bk.png"
+			/>
+		</div>
+	</body>
+</html>

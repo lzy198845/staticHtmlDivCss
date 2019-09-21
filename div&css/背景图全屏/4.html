@@ -1,0 +1,30 @@
+<!-- HTML5 body设置全屏背景图片 如何让body的背景图片自适应整个屏:
+https://blog.csdn.net/qq_34328404/article/details/78031090
+https://blog.csdn.net/WKY_CSDN/article/details/67639957
+https://blog.csdn.net/einsteingauss/article/details/50052975-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>背景图全屏</title>
+		<style>
+			.body {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: -10;
+				background-image: url("https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/act_bk.png");
+				background-repeat: no-repeat;
+				background-position: 0px 0px;
+				background-size: 100% 100%;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="body" id="Background"></div>
+	</body>
+</html>
