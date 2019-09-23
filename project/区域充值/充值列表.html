@@ -2,85 +2,122 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>充值列表</title>
-	<style>
-		html {
-			width: 100%;
-			height: 100%;
-			background: url("https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/inc_back.png") no-repeat;
-			/*背景不平铺*/
-			background-size: 100% 100%;
-			/*设定背景图像的尺寸*/
-			background-attachment: fixed;
-		}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>充值列表</title>
+    <style>
+        html,
+        body,
+        div {
+            margin: 0;
+            padding: 0;
+        }
 
-		.inc_100 img {
-			position: fixed;
-			width: 55%;
-			left: 22.5%;
-			bottom: 50%;
-		}
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: #F9E5EE;
+        }
 
-		.inc_200 img {
-			position: fixed;
-			width: 70%;
-			left: 15%;
-			bottom: 35%;
-		}
+        .content {
+            width: 100%;
+            height: 100%;
+            max-width: 460px;
+            position: relative;
+            margin: 0 auto;
+        }
 
-		.act_noarea {
-			position: absolute;
-			/*或fixed*/
-			z-index: 100;
-			width: 100%;
-			height: 100%;
-			top: 0px;
-			left: 0px;
-		}
+        .inc_100 img {
+            position: absolute;
+            width: 55%;
+            left: 22.5%;
+            top: 43%;
+        }
 
-		.act_noarea .img_pop {
-			width: 100%;
-			height: 100%;
-			display: block;
-			/*解决img底部留白问题*/
-		}
+        .inc_200 img {
+            position: absolute;
+            width: 70%;
+            left: 15%;
+            top: 55%;
+        }
 
-		.act_noarea .img_again {
-			width: 54%;
-			z-index: 2;
-			position: fixed;
-			bottom: 30%;
-			left: 23%;
-		}
+        /* 不在区域内 */
+        .act_noarea {
+            position: absolute;
+            /*或absolute*/
+            top: 16.8%;
+            z-index: 100;
+        }
 
-		.act_noarea .img_back {
-			width: 54%;
-			z-index: 2;
-			position: fixed;
-			bottom: 38%;
-			left: 23%;
-		}
-	</style>
+        .act_noarea .shade {
+            position: fixed;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .act_noarea .img_pop {
+            display: block;
+            margin: 0 auto;
+            width: 79.3%;
+            /*解决img底部留白问题*/
+        }
+
+        .act_noarea .img_again {
+            width: 54%;
+            z-index: 2;
+            position: absolute;
+            top: 81%;
+            left: 23%;
+        }
+
+        .act_noarea .img_back {
+            width: 54%;
+            z-index: 2;
+            position: absolute;
+            top: 67.6%;
+            left: 23%;
+        }
+
+        /* 活动内容 */
+        .act-content img,
+        .act-top img {
+            margin: 0 auto;
+            display: block;
+        }
+
+        .act-content,
+        .act-top {
+            position: absolute;
+        }
+    </style>
 </head>
 
 <body>
-	<div class="inc_100">
-		<img src="https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/inc_100.png" alt="" />
-	</div>
-	<div class="inc_200">
-		<img src="https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/inc_200.png" alt="" />
-	</div>
-	<div class="act_noarea">
-		<img class="img_pop" src="https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/act_noarea.png"
-			alt="">
-		<img class="img_back" src="https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/btn_back.png"
-			alt="">
-		<img class="img_again" src="https://john0613.oss-cn-shanghai.aliyuncs.com/store/test/20190915/btn_agin.png"
-			alt="">
-	</div>
+    <div class="content">
+        <div class="act-top" style="top: 0">
+            <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/act_top.png" alt="" style="width: 100%;">
+        </div>
+        <div class="act-content" style="top: 37%">
+            <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/act-content.png" alt="" style="width: 85%;">
+        </div>
+        <div class="inc_100">
+            <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/inc_100.png" alt="" />
+        </div>
+        <div class="inc_200">
+            <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/inc_200.png" alt="" />
+        </div>
+        <div class="act_noarea" hidden>
+            <img class="shade" src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/shade.png" alt="">
+            <img class="img_pop" src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/act_pop.png" alt="">
+            <img class="img_back" src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/btn_back.png" alt="">
+            <img class="img_again" src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/btn_agin.png" alt="">
+        </div>
+    </div>
 </body>
 
 </html>

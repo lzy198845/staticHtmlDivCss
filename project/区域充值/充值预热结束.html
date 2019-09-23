@@ -41,15 +41,25 @@
 
         .act-logo img,
         .act-endtext img,
-        .act-more img {
+        .act-more img,
+        .begintext img,
+        .act_button img {
             margin: 0 auto;
             display: block;
         }
 
         .act-logo,
         .act-endtext,
-        .act-more {
+        .act-more,
+        .begintext,
+        .act_button {
             position: absolute;
+        }
+
+        .act-logo,
+        .beginlogo,
+        .act_button {
+            z-index: 100;
         }
 
         /* 测试：磁盘同步、codesandbox同步 */
@@ -67,22 +77,38 @@
         <div class="bk-top">
             <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/bk_top.png" alt="">
         </div>
-        <div class="act-logo" style="top:20%">
-            <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/act_logo.png" alt="" style="width:49%">
-        </div>
-        <div class="act-endtext" style="bottom:43%">
-            <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/act_endtext.png" alt="" style="width:51.5%">
-        </div>
-        <div class="act-more" style="bottom:36%">
-            <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/act_more.png" alt="" style="width:40%">
-        </div>
-
-        <div class="bk-bottom">
-            <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/bk_bottom.png" alt="">
-        </div>
+        <!-- 页面内容 -->
+        <section class="act-end">
+            <div class="act-logo" style="top:20%">
+                <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/act_logo.png" alt="" style="width:49%">
+            </div>
+            <div class="act-endtext" style="bottom:43%">
+                <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/act_endtext.png" alt="" style="width:51.5%">
+            </div>
+            <div class="act-more" style="bottom:36%">
+                <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/act_more.png" alt="" style="width:40%">
+            </div>
+            <div class="bk-bottom">
+                <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/bk_bottom.png" alt="">
+            </div>
+        </section>
+        <section class="act-begin" hidden>
+            <div class="beginlogo" style="top:7px;left:10px;position: absolute;">
+                <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/act_logo.png" alt="" style="width:38%">
+            </div>
+            <div class="begintext" style="bottom:29%;z-index: 10;">
+                <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/begin_text.png" alt="" style="width:72%">
+            </div>
+            <div class="act_button" style="bottom:19%">
+                <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/act_button.png" alt="" style="width: 59%">
+            </div>
+            <div class="bk-bottom">
+                <img src="http://john0613.oss-cn-shanghai.aliyuncs.com/store/diancan.willove.top/area_amtinc/bk_bottom2.png" alt="">
+            </div>
+        </section>
+        <!-- !页面内容 -->
 
     </div>
-
 </body>
 
 </html>
